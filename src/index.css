@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────────────────
+   VALENTI BROS. DESIGN SYSTEM
+   "Super Mario Brothers meets High-End Construction"
+   ─────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Brand palette */
+  --color-mario-red: #E4000F;
+  --color-mario-blue: #0444BE;
+  --color-mario-green: #00B531;
+  --color-mario-gold: #FBD000;
+  --color-mario-gray: #F4F4F4;
+  --color-mario-black: #1A1A1A;
+
+  /* Typography */
+  --font-display: "Archivo Black", Impact, sans-serif;
+  --font-body: Montserrat, system-ui, sans-serif;
+  --font-pixel: "Press Start 2P", monospace;
+
+  /* "Block logic" hard 8-bit shadows */
+  --shadow-block-xs: 2px 2px 0 0 #1A1A1A;
+  --shadow-block-sm: 3px 3px 0 0 #1A1A1A;
+  --shadow-block: 6px 6px 0 0 #1A1A1A;
+  --shadow-block-lg: 8px 8px 0 0 #1A1A1A;
+
+  /* Animations */
+  --animate-coin-spin: coin-spin 2.4s linear infinite;
+  --animate-pulse-glow: pulse-glow 1.1s ease-in-out infinite;
+  --animate-marquee: marquee 22s linear infinite;
+}
+
+@keyframes coin-spin {
+  0%, 100% { transform: scaleX(1); }
+  25%      { transform: scaleX(0.2); }
+  50%      { transform: scaleX(-1); }
+  75%      { transform: scaleX(-0.2); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.18) saturate(1.15); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Custom utilities used throughout the site */
+@utility border-3 {
+  border-width: 3px;
+}
+@utility border-b-3 {
+  border-bottom-width: 3px;
+}
+@utility border-t-3 {
+  border-top-width: 3px;
+}
+@utility text-stroke-2 {
+  -webkit-text-stroke: 2px #1A1A1A;
+}
+@utility text-shadow-block {
+  text-shadow: 5px 5px 0 #1A1A1A;
+}
+@utility text-shadow-block-sm {
+  text-shadow: 2px 2px 0 #1A1A1A;
+}
+@utility grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-mario-gray);
+  color: var(--color-mario-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
